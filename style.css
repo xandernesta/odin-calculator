@@ -1,0 +1,104 @@
+
+
+/* Main */
+
+main {
+   width: 400px;
+   margin: 0 auto;
+   padding: 20px 20px 20px;
+}
+
+.screen {
+  display: grid;
+  justify-items: end;
+  width: 360px;
+  height: 90px;
+  padding: 15px;
+  background-color: #028090;
+  margin-bottom: 15px;
+  color: #e8f1f2;
+  overflow: hidden;
+}
+
+#history {
+  align-self: start;
+  overflow: hidden;
+  white-space: nowrap;
+}
+  
+#display {
+  font-size: 30px;
+  align-self: end;
+  overflow: hidden;
+}
+
+.buttons-grid {
+  display: grid;
+  gap: 1px;
+  height: 450px;
+  grid-template:
+    'clear backspace power divide'
+    'seven eigth nine multiply'
+    'four five six minus'
+    'one two three plus'
+    'zero decimal equals plus';
+}
+
+/* Buttons positions */
+#number-0 {
+  grid-area: zero;
+}
+#number-1 {
+  grid-area: one;
+}
+#number-2 {
+  grid-area: two;
+}
+#number-3 {
+  grid-area: three;
+}
+#number-4 {
+  grid-area: four;
+}
+#number-5 {
+  grid-area: five;
+}
+#number-6 {
+  grid-area: six;
+}
+#number-7 {
+  grid-area: seven;
+}
+#number-8 {
+  grid-area: eigth;
+}
+#number-9 {
+  grid-area: nine;
+}
+#decimal {
+  grid-area: decimal;
+}
+#equals {
+  grid-area: equals;
+}
+#plus {
+  grid-area: plus;
+}
+#minus {
+  grid-area: minus;
+}
+#multiply {
+  grid-area: multiply;
+}
+#divide {
+  grid-area: divide;
+}
+#power {
+  grid-area: power;
+}
+#backspace {
+  grid-area: backspace;
+}
+#clear {
+  grid-area: clear;
+}
