@@ -68,7 +68,7 @@ function updateDisplay(input){
         display.textContent = '';
         runningResult = operate(firstNumber, secondNumber, operation);
         nextUserInput = '';
-        console.log(`operation = ${operation}  + firstNumber = ${firstNumber}  + secondNumber = ${secondNumber}  + result = ${operate(firstNumber, secondNumber, operation)} & nextUserInput = ${nextUserInput}`);
+        //console.log(`operation = ${operation}  + firstNumber = ${firstNumber}  + secondNumber = ${secondNumber}  + result = ${operate(firstNumber, secondNumber, operation)} & nextUserInput = ${nextUserInput}`);
         //cannot return two variables at once https://stackoverflow.com/questions/2917175/return-multiple-values-in-javascript
     }else if(firstNumber !== '' && secondNumber !== '' && input.className === "button number"){
         firstNumber = runningResult; //runningResult is assigned after secondNumber is input
@@ -76,7 +76,7 @@ function updateDisplay(input){
         secondNumber = nextUserInput; 
         display.textContent = nextUserInput.textContent;
         history.textContent += ` ${input.textContent}`;
-        console.log(`operation = ${operation}  + first/nextUserInput = ${firstNumber}  + secondNumber = ${secondNumber}  + result = ${operate(firstNumber, secondNumber, operation)}  & nextUserInput = ${nextUserInput}`);
+        //console.log(`operation = ${operation}  + first/nextUserInput = ${firstNumber}  + secondNumber = ${secondNumber}  + result = ${operate(firstNumber, secondNumber, operation)}  & nextUserInput = ${nextUserInput}`);
         runningResult = operate(firstNumber, secondNumber, operation);
     }else if(input.className === "button operator"){
         if (nextUserInput === '+' || nextUserInput === '-' || nextUserInput === '/' || nextUserInput === '*' ){
@@ -109,13 +109,7 @@ function updateDisplay(input){
         secondNumber = '';
         nextUserInput = '';
     }
-        
-        
-     
-     
-
-
-    console.log(`operation = ${operation}  + first/nextUserInput = ${firstNumber}  + secondNumber = ${secondNumber}  + result = ${operate(firstNumber, secondNumber, operation)}  & nextUserInput = ${nextUserInput}`);
+    //console.log(`operation = ${operation}  + first/nextUserInput = ${firstNumber}  + secondNumber = ${secondNumber}  + result = ${operate(firstNumber, secondNumber, operation)}  & nextUserInput = ${nextUserInput}`);
 
 }
 //helper function for updateDisplay to find the key in an obj given the value of that key
