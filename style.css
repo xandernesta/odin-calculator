@@ -1,52 +1,98 @@
-
-
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Mochiy+Pop+One&family=Permanent+Marker&family=Roboto:ital,wght@1,100&display=swap');
+/* import fonts: 'Cinzel' , 'Mochiy Pop One', 'Permanent Marker', 'Roboto' */
+body{
+  background-color:rgb(166, 188, 206);
+}
 /* Main */
 
 main {
-   width: 400px;
-   margin: 0 auto;
-   padding: 20px 20px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  min-height: 300px;
+  min-width: 100px; /*20vw*/
+  height: 840px; /* 100vh*/
+  width:380px;
+  margin: 0 auto;
+  padding: 20px 20px 20px;
+}
+
+#container{
+  background-color: black;
+  border: 10px solid rgba(47,47,47,1);
+  border-radius: 4px;
+  height: 50.5vh;
+  width: 20.5vw;
+  
 }
 
 .screen {
   display: grid;
   justify-items: end;
-  width: 360px;
-  height: 90px;
+  height: 8vh;
   padding: 15px;
-  background-color: #028090;
-  margin-bottom: 15px;
-  color: #e8f1f2;
+  background-color:rgb(114, 172, 180);
+  color: rgb(0, 0, 0);
+  margin: 4px;
+  text-shadow: 1.3px 1.3px #383838;
   overflow: hidden;
 }
 
 #history {
+  font-size: 1.3rem;
+  font-family: monospace;
   align-self: start;
   overflow: hidden;
   white-space: nowrap;
 }
   
 #display {
-  font-size: 30px;
+  font-size: 3rem;
+  font-family: monospace;
   align-self: end;
   overflow: hidden;
+  
 }
 
 .buttons-grid {
+  height: 38vh;
   display: grid;
-  gap: 1px;
-  height: 450px;
+  margin: 2px;
+  gap: 2px;
+  grid-template-columns: 1fr 1fr;
   grid-template:
-    'clear backspace power divide'
+    'clear sign percent divide'
     'seven eigth nine multiply'
     'four five six minus'
     'one two three plus'
     'zero decimal equals plus';
 }
 
+button {
+  margin: 1px;
+  border-radius: 5%;
+  border:none;
+  font-weight: initial;
+  font-size: 1.25rem;
+  font-family: monospace;
+  color: black;
+
+}
+
+.button.number{
+  font-size: 2rem;
+  background-color: #028090;
+}
+.button.sign{
+  font-size: 1rem;
+  font-weight:bold;
+}
+
 /* Buttons positions */
 #number-0 {
   grid-area: zero;
+  
 }
 #number-1 {
   grid-area: one;
@@ -77,28 +123,89 @@ main {
 }
 #decimal {
   grid-area: decimal;
+  background-color:#028090;
 }
 #equals {
   grid-area: equals;
+  background-color: #028090;
 }
 #plus {
   grid-area: plus;
+  background-color: darkorchid;
 }
 #minus {
   grid-area: minus;
+  background-color: darkorchid;
 }
 #multiply {
   grid-area: multiply;
+  background-color: darkorchid;#028090;
 }
 #divide {
   grid-area: divide;
+  background-color: darkorchid;
 }
-#power {
-  grid-area: power;
+#sign {
+  grid-area: sign;
+  background-color: dodgerblue;
 }
-#backspace {
-  grid-area: backspace;
+#percent {
+  grid-area: percent;
+  background-color: dodgerblue;
 }
 #clear {
   grid-area: clear;
+  background-color: dodgerblue;
 }
+
+ /* FOOTER */
+ a {
+  text-decoration:none;
+  color: inherit
+}
+
+.footer {
+  font-family: 'Mochiy Pop One';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  font-size: 16px;
+}
+
+.xn-github {
+  color: black;
+  font-size: 10px;
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: -4px;
+}
+
+.xn-github:hover {
+  transform: rotate(360deg) scale(1.2);
+}
+/*large screen  */
+
+/* @media (max-width: 1400px) {
+  html {
+    font-size: 32px;
+  }
+} */
+
+/* Tablet screen  */
+
+/* @media (max-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+} */
+
+/* Mobile screen  */
+
+/* @media (max-width: 450px) {
+  html {
+    font-size: 12px;
+  }
+} */

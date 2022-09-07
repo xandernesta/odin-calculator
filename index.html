@@ -10,37 +10,47 @@
 </head>
 <body>
     <main>
-        <div class="screen">
-            <div id="history"></div>
-            <div id="display"></div>
-        </div>
-
-        <div class="buttons-grid">
-            <button id="number-0" class="button number" value="0">0</button>
-            <button id="number-1" class="button number" value="1">1</button>
-            <button id="number-2" class="button number" value="2">2</button>
-            <button id="number-3" class="button number" value="3">3</button>
-            <button id="number-4" class="button number" value="4">4</button>
-            <button id="number-5" class="button number" value="5">5</button>
-            <button id="number-6" class="button number" value="6">6</button>
-            <button id="number-7" class="button number" value="7">7</button>
-            <button id="number-8" class="button number" value="8">8</button>
-            <button id="number-9" class="button number" value="9">9</button>
-            <!-- <button id="decimal" class="button decimal">.</button> -->
-            <button id="multiply" class="button operator" value="*"><i class="fa-solid fa-xmark"></i></button>
-            <button id="divide" class="button operator" value="/"><i class="fa-solid fa-divide"></i></button>
-            <button id="plus" class="button operator" value="+"><i class="fa-solid fa-plus"></i></button>
-            <button id="minus" class="button operator" value="-"><i class="fa-solid fa-minus"></i></button>
-            <button id="equals" class="button equals" value="="><i class="fa-solid fa-equals"></i></button>
-            <button id="clear" class="button clear" value="clear">Clear</button>
-            <!-- <button id="backspace" class="button backspace"><i class="fa-solid fa-delete-left"></i></button> -->
-            
+        <div id="container">
+            <div class="screen">
+                <div id="history"></div>
+                <div id="display"></div>
+            </div>
+            <div class="buttons-grid">
+                <button id="number-0" class="button number" value="0">0</button>
+                <button id="number-1" class="button number" value="1">1</button>
+                <button id="number-2" class="button number" value="2">2</button>
+                <button id="number-3" class="button number" value="3">3</button>
+                <button id="number-4" class="button number" value="4">4</button>
+                <button id="number-5" class="button number" value="5">5</button>
+                <button id="number-6" class="button number" value="6">6</button>
+                <button id="number-7" class="button number" value="7">7</button>
+                <button id="number-8" class="button number" value="8">8</button>
+                <button id="number-9" class="button number" value="9">9</button>
+                <button id="decimal" class="button decimal" value=".">.</button>
+                <button id="sign" class="button sign" value="sign">+/-</button>
+                <button id="percent" class="button percent" value="percent">%</button>
+                <button id="multiply" class="button operator" value="*"><i class="fa-solid fa-xmark"></i></button>
+                <button id="divide" class="button operator" value="/"><i class="fa-solid fa-divide"></i></button>
+                <button id="plus" class="button operator" value="+"><i class="fa-solid fa-plus"></i></button>
+                <button id="minus" class="button operator" value="-"><i class="fa-solid fa-minus"></i></button>
+                <button id="equals" class="button equals" value="="><i class="fa-solid fa-equals"></i></button>
+                <button id="clear" class="button clear" value="clear">AC</button>
+                <!-- <button id="backspace" class="button backspace"><i class="fa-solid fa-delete-left"></i></button> -->
+                
+            </div>
         </div>
     </main>
+    <footer class="footer">
+        <p>
+        <a href="https://github.com/xandernesta/odin-etch-a-sketch" target="_blank">
+            <img class="xn-github" src="GitHub-Mark-64px.png" height="32" width="32" alt="fa-github">
+            &nbsp;Xander&nbsp;© 2022
+        </a>
+        <!-- <script>
+            document.write(new Date().getFullYear())
+        </script> -->
+        </p>
+    </footer>
 </body>
-
-<footer>
-
-</footer>
 <script src="app.js"></script>
 </html>
