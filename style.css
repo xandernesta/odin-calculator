@@ -83,7 +83,13 @@ button {
 .button.number{
   font-size: 2rem;
   background-color: #028090;
+  
 }
+
+.button.number:hover{
+  background-color: #096975;
+}
+
 .button.sign{
   font-size: 1rem;
   font-weight:bold;
@@ -125,37 +131,67 @@ button {
   grid-area: decimal;
   background-color:#028090;
 }
+#decimal:hover {
+  background-color: #771ca5;
+}
 #equals {
   grid-area: equals;
   background-color: #028090;
+}
+#equals:hover {
+  background-color: #771ca5;
 }
 #plus {
   grid-area: plus;
   background-color: darkorchid;
 }
+#plus:hover {
+  background-color: #771ca5;
+}
 #minus {
   grid-area: minus;
   background-color: darkorchid;
 }
+#minus:hover {
+  background-color: #771ca5;
+}
 #multiply {
   grid-area: multiply;
-  background-color: darkorchid;#028090;
+  background-color: darkorchid;
+}
+#multiply:hover {
+  background-color: #771ca5;
 }
 #divide {
   grid-area: divide;
   background-color: darkorchid;
 }
+#divide:hover {
+  background-color: #771ca5;
+}
 #sign {
   grid-area: sign;
   background-color: dodgerblue;
 }
+#sign:hover{
+  background-color: rgb(10, 47, 83);
+  }
 #percent {
   grid-area: percent;
   background-color: dodgerblue;
 }
+#percent:hover{
+  background-color: rgb(10, 47, 83);
+  }
 #clear {
   grid-area: clear;
   background-color: dodgerblue;
+}
+#clear:hover{
+background-color: rgb(10, 47, 83);
+}
+.button.operator:hover {
+  background-color: #771ca5;
 }
 
  /* FOOTER */

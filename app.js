@@ -13,12 +13,13 @@ function startCalculator(){
             if(button.classList.contains('number')){
                 inputNumber(button.value);
                 updateDisplay();
-                updateHistory();
+                updateHistory(button.value);
+                //updateHistory(displayValue);//button.value
             }
             else if (button.classList.contains('operator')){
                 inputOperator(button.value);
                 updateDisplay();
-                updateHistory();
+                updateHistory(button.value);
             }
             else if (button.classList.contains('equals')){
                 inputEquals(button.value);
@@ -31,6 +32,17 @@ function startCalculator(){
             else if (button.classList.contains('decimal')){
                 inputDecimal(button.value);
                 updateDisplay();
+                updateHistory(button.value);
+            }
+            else if (button.classList.contains('sign')){
+                inputSign(displayValue);
+                updateDisplay();
+                updateHistory(button.value);
+            }
+            else if (button.classList.contains('percent')){
+                inputPercent(displayValue);
+                updateDisplay();
+                updateHistory(button.value);
             }
         })
     );
@@ -88,20 +100,47 @@ function updateDisplay(){
 }
 
 
-function updateHistory(){
-    if(secondOperator === ''){
-        if(secondNumber === ''){
-            runningHistory = `${firstNumber} ${firstOperator}`
-            history.textContent = runningHistory;
-        }else{ 
-            runningHistory += ` ${secondNumber} =`
-            history.textContent = runningHistory;
-        }
-    }else if(secondOperator !== ''){
-        runningHistory += ` ${secondNumber} ${secondOperator}`
+function updateHistory(input){
+   if (firstOperator === ''){
+        // if(displayValue.length < 2){
+        //     runningHistory += `${input}`
+        // }else { 
+            runningHistory += `${input}`;
+            return
+        
+    } else  if (input === '+') {
+        runningHistory += ' +  '
         history.textContent = runningHistory;
-    } 
+    } else if (input === '-') {
+        runningHistory += ' -  ';
+        history.textContent = runningHistory;
+    } else if (input === '*') {
+        runningHistory += ' × ';
+        history.textContent = runningHistory;
+    } else if (input === '/') {
+        runningHistory += ' ÷  ';
+        history.textContent = runningHistory;
+    } else if (input === 'sign') {
+        let i = displayValue.length;
+        newHistory = runningHistory.slice(0, -parseInt(i));
+        runningHistory = `${newHistory}${displayValue}`
+        history.textContent = runningHistory;
+    } else if (input === 'percent') {
+        let i = displayValue.length;
+        newHistory = runningHistory.slice(0, -parseInt(i-1));
+        runningHistory = `${newHistory} ${displayValue}`
+        history.textContent = runningHistory;
+    } else if (input === '.') {
+        let i = displayValue.length;
+        newHistory = runningHistory.slice(0, -parseInt(i));
+        runningHistory = `${newHistory}${displayValue}`
+        history.textContent = runningHistory;
+    }else {
+        runningHistory += `${input}`;
+        history.textContent = runningHistory;
+    }
 }
+
 
 function inputNumber(num){
     if(firstOperator === ''){
@@ -158,7 +197,7 @@ function inputEquals(num){
     }else if(secondOperator !== ''){
         //displays final result
         secondNumber = displayValue;
-        history.textContent += ` ${secondNumber} =`
+        history.textContent += ` =`
         result = operate(Number(firstNumber), Number(secondNumber), secondOperator);
         if(result === 'Error: divide by 0'){
             displayValue = 'Error: Cannot divide by 0';
@@ -174,7 +213,7 @@ function inputEquals(num){
         }
     }else {
         secondNumber = displayValue;
-        history.textContent += ` ${secondNumber} =`
+        history.textContent += `  =`
         result = operate(Number(firstNumber), Number(secondNumber), firstOperator);
         if(result === 'Error: divide by 0'){
             displayValue = 'Error: Cannot divide by 0';
@@ -190,6 +229,7 @@ function inputEquals(num){
         }
     }
 }
+
 function inputDecimal(dot) {
     if(displayValue === firstNumber || displayValue === secondNumber){
         displayValue = '0';
@@ -198,6 +238,15 @@ function inputDecimal(dot) {
         displayValue += dot;
     }
 }
+
+function inputSign(num) {
+    displayValue = (num * -1).toString();
+}
+
+function inputPercent(num) {
+    displayValue = (num/100).toString();
+}
+
 function clearDisplay(){
     displayValue = '0'
     history.textContent = '';
