@@ -6,46 +6,62 @@ function startCalculator(){
     updateDisplay();
     buttons.forEach(button =>
         button.addEventListener('click', () => {
-            /* updateDisplay(button);
-            buttons.forEach((e) => {e.blur();}); 
-            //these from first iteration where all logic existed in updateDisplay
-            */
             if(button.classList.contains('number')){
                 inputNumber(button.value);
                 updateDisplay();
                 updateHistory(button.value);
                 //updateHistory(displayValue);//button.value
-            }
-            else if (button.classList.contains('operator')){
+            }else if (button.classList.contains('operator')){
                 inputOperator(button.value);
                 updateDisplay();
                 updateHistory(button.value);
-            }
-            else if (button.classList.contains('equals')){
+            }else if (button.classList.contains('equals')){
                 inputEquals(button.value);
                 updateDisplay();
-            }
-            else if (button.classList.contains('clear')){
+            }else if (button.classList.contains('clear')){
                 clearDisplay();
                 updateDisplay();
-            }
-            else if (button.classList.contains('decimal')){
+            }else if (button.classList.contains('decimal')){
                 inputDecimal(button.value);
                 updateDisplay();
                 updateHistory(button.value);
-            }
-            else if (button.classList.contains('sign')){
+            }else if (button.classList.contains('sign')){
                 inputSign(displayValue);
                 updateDisplay();
                 updateHistory(button.value);
-            }
-            else if (button.classList.contains('percent')){
+            }else if (button.classList.contains('percent')){
                 inputPercent(displayValue);
                 updateDisplay();
                 updateHistory(button.value);
             }
         })
     );
+    // Keyboard support
+    document.addEventListener('keyup', (event) => {
+        const operators = {
+            '+': 'plus',
+            '-': 'minus',
+            '*': 'multiply',
+            '/': 'divide',
+            '^': 'power',
+        };
+        buttons.forEach((button) => { button.blur(); });
+        if (!Number.isNaN(+event.key) && event.key !== ' ') {
+            document.getElementById(`number-${event.key}`).click();
+        } else if (event.key === 'Backspace') {
+            document.getElementById('backspace').click();
+        } else if (event.key === 'Delete' || event.key === 'c' || event.key === 'C') {
+            document.getElementById('clear').click();
+        } else if (event.key === '.') {
+            document.getElementById('decimal').click();
+        } else if (event.key === '=' || event.key === 'Enter') {
+            document.getElementById('equals').click();
+        } else if (['+', '-', '*', '/', '^'].includes(event.key)) {
+            document.getElementById(operators[event.key]).click();
+        } else {
+            console.log('Wrong key:', event.key);
+        }
+    });
 }
 //global variables declarations
 let displayValue = '0'
@@ -99,15 +115,10 @@ function updateDisplay(){
     }
 }
 
-
 function updateHistory(input){
    if (firstOperator === ''){
-        // if(displayValue.length < 2){
-        //     runningHistory += `${input}`
-        // }else { 
             runningHistory += `${input}`;
             return
-        
     } else  if (input === '+') {
         runningHistory += ' +  '
         history.textContent = runningHistory;
@@ -115,7 +126,7 @@ function updateHistory(input){
         runningHistory += ' -  ';
         history.textContent = runningHistory;
     } else if (input === '*') {
-        runningHistory += ' × ';
+        runningHistory += ' ×  ';
         history.textContent = runningHistory;
     } else if (input === '/') {
         runningHistory += ' ÷  ';
@@ -140,7 +151,6 @@ function updateHistory(input){
         history.textContent = runningHistory;
     }
 }
-
 
 function inputNumber(num){
     if(firstOperator === ''){
@@ -174,7 +184,6 @@ function inputOperator(op){
         displayValue = result; //may need to add some rounding here
         firstNumber = displayValue;
         result = '';
-
     }else if (firstOperator !== '' && secondOperator !== '') {
         //operators after the second operator input
         secondNumber = displayValue;
@@ -209,7 +218,6 @@ function inputEquals(num){
             secondOperator = '';
             result = '';
             runningHistory = '';
-            
         }
     }else {
         secondNumber = displayValue;
@@ -225,7 +233,6 @@ function inputEquals(num){
             secondOperator = '';
             result = '';
             runningHistory = '';
-            
         }
     }
 }
@@ -257,11 +264,7 @@ function clearDisplay(){
     runningHistory = '';
     result = '';
 }
-//helper function for updateDisplay to find the key in an obj given the value of that key
-/* function getObjKey(obj, value) {
-    return Object.keys(obj).find(key => obj[key] === value);
-} */
-//helper function to truncate longer decimal numbers
+
 function truncDecimals(answer) {
     if (answer.toString().indexOf('.') !== -1) {
       if (answer.toString().split('.')[1].length > 5) {
